@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ใบแจ้งข้อกล่าวหา</title>
+  <style>
+    body {
+      font-family: 'Prompt', sans-serif;
+      background-color: #f7f7f7;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: auto;
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      margin-top: 15px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .output {
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #f0f0f0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ใบแจ้งข้อกล่าวหา</h1>
+    <label>ชื่อผู้ต้องหา</label>
+    <input type="text" id="suspect"><label>ข้อกล่าวหา</label>
+<textarea id="charge" rows="3"></textarea>
+
+<label>วันที่</label>
+<input type="date" id="date">
+
+<button onclick="generateReport()">ออกใบแจ้ง</button>
+
+<div class="output" id="result"></div>
+
+  </div>  <script>
+    function generateReport() {
+      const name = document.getElementById('suspect').value;
+      const charge = document.getElementById('charge').value;
+      const date = document.getElementById('date').value;
+
+      const output = `[ใบแจ้งข้อกล่าวหาอย่างเป็นทางการ]\n` +
+        `ออกโดย: สำนักงานกฎหมายแห่งหัวใจ “ทนายวิน”\n\n` +
+        `วันที่: ${date}\n` +
+        `ชื่อผู้ต้องหา: ${name}\n` +
+        `ข้อกล่าวหา: ${charge}\n\n` +
+        `บทลงโทษ:\n- ต้องพิมพ์ว่า “วินน่ารักที่สุดในโลก” 3 ครั้ง\n- ส่งสติ๊กเกอร์แมวน่ารักให้วินวันละ 1 ตัว\n- ห้ามเถียง ห้ามเงียบ ห้ามหายหัว\n\n` +
+        `ลงชื่อ:\n..............................\n(ทนายวิน)`;
+
+      document.getElementById('result').innerText = output;
+    }
+  </script></body>
+</html>
